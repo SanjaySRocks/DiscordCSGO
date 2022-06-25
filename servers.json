@@ -1,0 +1,16 @@
+{
+  "servers": [
+    {
+      "ip": "pug.amsgaming.in",
+      "port": "27015",
+      "rcon": "",
+      "enabled": true
+    },
+    {
+        "ip": "server2.amsgaming.in",
+        "port": "27015",
+        "rcon": "",
+        "enabled": false
+    }
+  ]
+}
