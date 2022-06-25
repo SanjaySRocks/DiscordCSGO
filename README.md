@@ -1,6 +1,7 @@
 # DiscordCSGO
  Automated bot used for querying server
 
+
 ```
 pip -r install requirements
 ```
