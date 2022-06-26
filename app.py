@@ -6,11 +6,12 @@ import time, datetime
 from discord.ext import tasks
 
 client = discord.Client()
-global MSG_TIMEOUT
-MSG_TIMEOUT=30
+
 
 with open('config.json', 'r') as f:
     config = json.load(f)
+
+MSG_TIMEOUT = int(config['MSG_TIMEOUT'])
 
 @client.event
 async def on_ready():
