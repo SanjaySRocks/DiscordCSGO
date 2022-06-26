@@ -7,7 +7,7 @@ from discord.ext import tasks
 
 client = discord.Client()
 global MSG_TIMEOUT
-MSG_TIMEOUT=10
+MSG_TIMEOUT=30
 
 with open('config.json', 'r') as f:
     config = json.load(f)
@@ -48,7 +48,7 @@ async def server():
                             if len(player['name']) > 0:
                                 player['duration'] = time.strftime("%H:%M:%S", time.gmtime(player['duration']))
                                 index = str(i)
-                                table_data.append([index.zfill(2), player['name'], player['score'], player['duration']])
+                                table_data.append([index.zfill(2), player['name'][:8], player['score'], player['duration']])
 
                         tdata = tabulate(table_data, headers=['#','Player', 'Score', 'Time'])
 
