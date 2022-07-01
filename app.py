@@ -1,9 +1,9 @@
 import discord
+from discord.ext import tasks
 import json
 from tabulate import tabulate
 import valve.source.a2s
 import time, datetime
-from discord.ext import tasks
 
 client = discord.Client()
 
@@ -20,7 +20,7 @@ async def on_ready():
 
 @tasks.loop(seconds = MSG_TIMEOUT)
 async def server():
-    
+    try:
         with open('servers.json', 'r') as f:
             servers = json.load(f)
 
@@ -69,6 +69,8 @@ async def server():
                     await channel.send(embed=embed, delete_after=MSG_TIMEOUT)
 
                 time.sleep(2)
+    except discord.errors.DiscordServerError:
+        pass
 
 
 client.run(config['TOKEN'])
