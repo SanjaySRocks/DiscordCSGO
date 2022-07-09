@@ -61,12 +61,14 @@ async def server():
                     embed.timestamp = datetime.datetime.utcnow()
                     embed.set_footer(text='⏱️ AnonymouS Gaming')
 
-                    await channel.send(embed=embed, delete_after=MSG_TIMEOUT)
+                    sent_message = await channel.send(embed=embed, delete_after=MSG_TIMEOUT)
                 except valve.source.NoResponseError:
                     embed = discord.Embed(title=f"{SERVER_IP}:{SERVER_PORT} Not Responding...", 
                     description=f"```Error Occured in quering server...```", 
                     color=discord.Color.red())
-                    await channel.send(embed=embed, delete_after=MSG_TIMEOUT)
+                    sent_message = await channel.send(embed=embed, delete_after=MSG_TIMEOUT)
+                except valve.source.messages.BrokenMessageError:
+                    pass
 
                 time.sleep(2)
     except discord.errors.DiscordServerError:
