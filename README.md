@@ -3,7 +3,7 @@
 
 
 ```
-pip -r install requirements
+pip install -r requirements
 ```
 ```
 python3 app.py
