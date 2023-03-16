@@ -1,5 +1,6 @@
 # DiscordCSGO
- Automated bot used for querying server
+
+Discord bot which query csgo gameserver and give you information about players, maps and count
 
 
 ```
