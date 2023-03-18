@@ -5,7 +5,9 @@ from tabulate import tabulate
 import valve.source.a2s
 import time, datetime
 
-client = discord.Client()
+
+intents = discord.Intents.default()
+client = discord.Client(intents=intents)
 
 
 with open('config.json', 'r') as f:
